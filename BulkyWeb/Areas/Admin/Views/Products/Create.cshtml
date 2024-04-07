@@ -1,0 +1,82 @@
+﻿@model ProductVM
+
+
+<!-- Default Card Example -->
+<div class="card mb-4">
+    <div class="card-header">
+        Agregar Categoría
+    </div>
+    <div class="card-body">
+        <form method="post" asp-action="Create">
+            <div>
+                <div class="row">
+                    <div class="mb-3 col-md-6">
+                        <label class="form-label" asp-for="@Model.Product.Title">Nombre</label>
+                        <input class="form-control" type="text" asp-for="@Model.Product.Title" />
+                        <span asp-validation-for="@Model.Product.Title" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <label class="form-label" asp-for="@Model.Product.CategoryId">Categoría</label>
+                        <select class="form-control" id="generic-selector" asp-for="@Model.Product.CategoryId" asp-items="@Model.CategoryList">
+                           <option disabled selected>-Seleccionar-</option>
+                       </select>
+                       <span asp-validation-for="@Model.Product.CategoryId" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mb-3 col-md-6">
+                        <label class="form-label" asp-for="@Model.Product.ISBN">ISBN</label>
+                        <input class="form-control" type="text" asp-for="@Model.Product.ISBN" />
+                        <span asp-validation-for="@Model.Product.ISBN" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <label class="form-label" asp-for="@Model.Product.Author">Autor</label>
+                        <input class="form-control" type="text" asp-for="@Model.Product.Author" />
+                        <span asp-validation-for="@Model.Product.Author" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mb-3 col-md-6">
+                        <label class="form-label" asp-for="@Model.Product.PriceList"></label>
+                        <input class="form-control" type="number" min="0" asp-for="@Model.Product.PriceList" />
+                        <span asp-validation-for="@Model.Product.PriceList" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <label class="form-label" asp-for="@Model.Product.Price"></label>
+                        <input class="form-control" type="number" min="0" asp-for="@Model.Product.Price" />
+                        <span asp-validation-for="@Model.Product.Price" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mb-3 col-md-6">
+                        <label class="form-label" asp-for="@Model.Product.Price50"></label>
+                        <input class="form-control" type="number" min="0" asp-for="@Model.Product.Price50" />
+                        <span asp-validation-for="@Model.Product.Price50" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <label class="form-label" asp-for="@Model.Product.Price100"></label>
+                        <input class="form-control" type="number" min="0" asp-for="@Model.Product.Price100" />
+                        <span asp-validation-for="@Model.Product.Price100" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mb-3 col-md-6">
+                        <label class="form-label" asp-for="@Model.Product.ImageUrl">Imagen</label>
+                        <input class="form-control" type="file" asp-for="@Model.Product.ImageUrl" />
+                        <span asp-validation-for="@Model.Product.Description" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mb-3 col-md-12">
+                        <label class="form-label" asp-for="@Model.Product.Description"></label>
+                        <textarea class="form-control" rows="3" cols="3"></textarea>
+                        <span asp-validation-for="@Model.Product.Description" class="text-danger"></span>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-sm btn-outline-primary">Guardar</button>
+                <a class="btn btn-sm btn-outline-secondary" asp-action="Index">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+

@@ -1,0 +1,28 @@
+﻿@model Category
+
+<div class="card mb-4">
+    <div class="card-header">
+        Editar Categoría @Model.Name
+    </div>
+    <div class="card-body">
+        <form method="post" asp-action="Create">
+            <div>
+                <div class="row">
+                    <div class="mb-3 col-md-6">
+                        <label class="form-label" asp-for="Name">Nombre</label>
+                        <input class="form-control" type="text" asp-for="Name" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <label class="form-label" asp-for="DisplayOrder">Orden</label>
+                        <input class="form-control" type="number" min="0" asp-for="DisplayOrder" />
+                        <span asp-validation-for="DisplayOrder" class="text-danger"></span>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-sm btn-outline-primary">Guardar</button>
+                <a class="btn btn-sm btn-outline-secondary" asp-action="Index">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+

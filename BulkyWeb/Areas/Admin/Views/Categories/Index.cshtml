@@ -1,0 +1,54 @@
+﻿@model List<Category>
+
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3 d-flex justify-content-between">
+        <div>
+            <h6 class="m-0 font-weight-bold text-primary">Categorías</h6>
+        </div>
+        <div>
+            <a class="btn btn-sm btn-primary" asp-action="Create">
+                <i class="fas fa-plus-circle"></i>
+                &nbsp; Nueva Categoría
+            </a>
+            <a class="btn btn-sm btn-success" asp-action="Create">
+                <i class="fas fa-file-excel"></i>
+                &nbsp; Descargar
+            </a>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Orden</th>
+                        <th>Creado él</th>
+                        <th class="text-center" style="width:20%">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var cat in Model)
+                    {
+                        <tr>
+                            <td>@cat.Id</td>
+                            <td>@cat.Name</td>
+                            <td>@cat.DisplayOrder</td>
+                            <td>@cat.Created.ToShortDateString()</td>
+                            <td>
+                                <a class="btn btn-sm btn-outline-info" asp-action="Edit" asp-route-id="@cat.Id">
+                                    <i class="fas fa-pencil-alt"></i> &nbsp; Editar
+                                </a>
+                                <a class="btn btn-sm btn-outline-danger" asp-action="Delete" asp-route-id="@cat.Id">
+                                    <i class="fas fa-trash-alt"></i> &nbsp; Eliminar
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
